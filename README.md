@@ -49,3 +49,12 @@ bundle exec rspec
 - **Item schema for the purchased goods** — retail systems typically split goods across multiple schemas (categories, products, SKUs, etc.), but the challenge lacks sufficient data to justify that complexity.
 - **Tax application inferred from item name** — in production, product data should be rich enough to classify goods explicitly. Name-based inference is error prone and it's used here only for simplicity.
 - **Integer cents for money** — floats are avoided due to rounding issues with floating point arithmetic. Tax calculations involve interim floats, but values are converted back to integer cents immediately. The expected results were not altered. [See more](https://blog.codeminer42.com/be-cool-dont-use-float-double-for-storing-monetary-values/)
+
+## Project Structure
+
+- `app/schemas/` — domain objects
+- `app/services/` — business logic
+- `app/utils/` — shared utilities
+- `app/receipt_generator.rb` — application entrypoint
+- `purchases/` — sample input files
+- `spec/` — test suite, mirroring the `app/` structure
